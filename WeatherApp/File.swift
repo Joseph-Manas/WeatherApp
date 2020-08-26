@@ -11,7 +11,7 @@ import Foundation
 struct WeatherResult: Codable, Identifiable {
     var id: Int
     var name: String
-    var weather: Weather
+    var weather: [Weather]
     var main: OtherStats
     var wind: Wind
 }

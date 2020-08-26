@@ -9,8 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var cityName: String = "CityName"
+    
     var body: some View {
-        Text("Hello")
+        Text("\(cityName)")
+            .onAppear(perform: loadData)
+    }
+    
+    func loadData() {
+        NetworkService.shared.getWeatherInfo(for: "London") { result in
+            cityName = result.name
+            print(result.name)
+        }
     }
 }
 
